@@ -79,6 +79,8 @@ namespace BookListView
 
         private void lvwBooks_ItemActivate(object sender, EventArgs e)
         {
+            
+
             if (lvwBooks.SelectedIndices.Count > 0)
             {
                 string strBookname = b_name[lvwBooks.SelectedIndices[0]];
@@ -92,17 +94,16 @@ namespace BookListView
                     // 1. 先確認書名是否相同
                     if (item.Text == strBookname)
                     {
-                        // 2. 取得該書紀錄的到期日 (存放在 SubItems[1])
-                        DateTime dueDate = DateTime.Parse(item.SubItems[1].Text).Date;
+                        DateTime existingStartDate = DateTime.Parse(item.SubItems[1].Text).Date;
+                        DateTime existingDueDate = DateTime.Parse(item.SubItems[2].Text).Date;
 
-                        // 假設借期是 7 天，則起始日是到期日減去 6 天
-                        DateTime startDate = dueDate.AddDays(-6);
 
-                        // 3. 判斷選取日期是否落在 [startDate, dueDate] 區間內
-                        if (selectedDate >= startDate && selectedDate <= dueDate)
-                        {
+                        DateTime newStartDate = selectedDate;
+                        DateTime newDueDate = selectedDate.AddDays(6);
+
+                        if (!(newStartDate < existingStartDate && newDueDate < existingStartDate) && !(newStartDate > existingDueDate && newDueDate > existingDueDate)) {
                             isAlreadyBorrowed = true;
-                            break;
+                            break; // 只要找到一筆重疊的紀錄，就中斷檢查
                         }
                     }
                 }

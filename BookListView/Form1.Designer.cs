@@ -36,9 +36,9 @@
             this.grpView = new System.Windows.Forms.GroupBox();
             this.cmbView = new System.Windows.Forms.ComboBox();
             this.grpBorrow = new System.Windows.Forms.GroupBox();
-            this.pnlTools = new System.Windows.Forms.Panel();
-            this.borrowdate = new System.Windows.Forms.DateTimePicker();
             this.lvwBorrow = new System.Windows.Forms.ListView();
+            this.borrowdate = new System.Windows.Forms.DateTimePicker();
+            this.pnlTools = new System.Windows.Forms.Panel();
             this.grpView.SuspendLayout();
             this.grpBorrow.SuspendLayout();
             this.pnlTools.SuspendLayout();
@@ -122,25 +122,6 @@
             this.grpBorrow.Text = "借書清單";
             this.grpBorrow.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // pnlTools
-            // 
-            this.pnlTools.Controls.Add(this.grpBorrow);
-            this.pnlTools.Controls.Add(this.grpView);
-            this.pnlTools.Location = new System.Drawing.Point(487, 3);
-            this.pnlTools.Name = "pnlTools";
-            this.pnlTools.Size = new System.Drawing.Size(359, 404);
-            this.pnlTools.TabIndex = 3;
-            this.pnlTools.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTools_Paint);
-            // 
-            // borrowdate
-            // 
-            this.borrowdate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.borrowdate.Location = new System.Drawing.Point(3, 25);
-            this.borrowdate.Name = "borrowdate";
-            this.borrowdate.Size = new System.Drawing.Size(353, 29);
-            this.borrowdate.TabIndex = 4;
-            this.borrowdate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
             // lvwBorrow
             // 
             this.lvwBorrow.Activation = System.Windows.Forms.ItemActivation.TwoClick;
@@ -153,14 +134,32 @@
             this.lvwBorrow.TabIndex = 5;
             this.lvwBorrow.UseCompatibleStateImageBehavior = false;
             this.lvwBorrow.View = System.Windows.Forms.View.Details;
-            this.lvwBorrow.SelectedIndexChanged += new System.EventHandler(this.lvwBorrow_SelectedIndexChanged);
             this.lvwBorrow.SelectedIndexChanged += new System.EventHandler(this.lvwBorrow_ItemActivate);
+            // 
+            // borrowdate
+            // 
+            this.borrowdate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.borrowdate.Location = new System.Drawing.Point(3, 25);
+            this.borrowdate.Name = "borrowdate";
+            this.borrowdate.Size = new System.Drawing.Size(353, 29);
+            this.borrowdate.TabIndex = 4;
+            this.borrowdate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // pnlTools
+            // 
+            this.pnlTools.Controls.Add(this.grpBorrow);
+            this.pnlTools.Controls.Add(this.grpView);
+            this.pnlTools.Location = new System.Drawing.Point(487, 3);
+            this.pnlTools.Name = "pnlTools";
+            this.pnlTools.Size = new System.Drawing.Size(359, 404);
+            this.pnlTools.TabIndex = 3;
+            this.pnlTools.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTools_Paint);
             // 
             // frmBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1435, 677);
+            this.ClientSize = new System.Drawing.Size(853, 411);
             this.Controls.Add(this.lvwBooks);
             this.Controls.Add(this.pnlTools);
             this.Name = "frmBooks";
